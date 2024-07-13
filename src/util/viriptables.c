@@ -459,7 +459,7 @@ iptablesForwardAllowRelatedIn(virFirewall *fw,
                            "--in-interface", physdev,
                            "--out-interface", iface,
                            "--match", "conntrack",
-                           "--ctstate", "ESTABLISHED,RELATED",
+                           "--ctstate", "NEW,ESTABLISHED,RELATED",
                            "--jump", "ACCEPT",
                            NULL);
     else
@@ -470,7 +470,7 @@ iptablesForwardAllowRelatedIn(virFirewall *fw,
                            "--destination", networkstr,
                            "--out-interface", iface,
                            "--match", "conntrack",
-                           "--ctstate", "ESTABLISHED,RELATED",
+                           "--ctstate", "NEW,ESTABLISHED,RELATED",
                            "--jump", "ACCEPT",
                            NULL);
 
